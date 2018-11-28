@@ -1,24 +1,40 @@
 {
     "manifest_version": 2,
-    "name": "trustnote_wallet",
+    "name": "fusion wallet",
     "version": "1.0.0",
-    "description": "trustnote_wallet",
-    "icons":{
+    "description": "fusion wallet",
+    "icons": {
         "16": "img/icon.png",
         "48": "img/icon.png",
         "128": "img/icon.png"
     },
-    "browser_action":{
+    "browser_action": {
         "default_icon": "img/icon.png",
-        "default_title": "trustnote_wallet",
+        "default_title": "fusion wallet",
         "default_popup": "index.html"
     },
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": true
     },
+    "content_scripts": [
+        {
+            //"matches": ["http://*/*", "https://*/*"],
+            // "<all_urls>" 表示匹配所有地址
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "fn.js"
+            ],
+            //"css": ["css/custom.css"],
+            "run_at": "document_end"
+        }
+    ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "permissions":[
+    "permissions": [
         "contextMenus",
         "tabs",
         "notifications",
@@ -28,6 +44,8 @@
         "http://*/*",
         "https://*/*"
     ],
-    //"web_accessible_resources": ["js/inject.js"],
+    "web_accessible_resources": [
+        "fn.js"
+    ],
     "homepage_url": "https://github.com/fusionwallet/chrome_extensions"
 }

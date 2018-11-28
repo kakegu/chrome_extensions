@@ -23,8 +23,8 @@ git clone https://github.com/fusionwallet/chrome_extensions.git
 ```
 <style>
     body {
-        min-width: 300px;
-        min-height: 500px;
+        min-width: 500px;
+        min-height: 600px;
     }
 </style>
 ```
